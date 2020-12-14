@@ -7,9 +7,9 @@ const bp = require('body-parser')
 
 const URI = process.env.MONGODB_URI;
 
-app.get('/', (req, res) => {
-    res.send('hia')
-})
+// app.get('/', (req, res) => {
+//     res.send('hia')
+// })
 
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
