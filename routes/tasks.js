@@ -13,7 +13,7 @@ router.post('/new', (req,res) => {
         'color': req.body.color,
         'date': req.body.date,
     })
-    newTask.save().then(res.json({newTask})).catch(res.status(400).send({error})) 
+    newTask.save().then(res.json({newTask})).catch(res.status(400).json({error, message:'something went wrong'})) 
 })
 
 module.exports = router
