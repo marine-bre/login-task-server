@@ -16,4 +16,14 @@ router.post('/new', (req,res) => {
     newTask.save().then(res.json({newTask})).catch(res.status(400).json({error, message:'something went wrong'})) 
 })
 
+
+//retrieve task route
+router.get('/allPosts', (req,res) => {
+    let userId = req.body.userId
+    let posts = [];
+    Task.find({userId:userId})
+    .then(result => res.json(result))
+    .catch(err => res.status(400).json(err))
+})
+
 module.exports = router
