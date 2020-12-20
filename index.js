@@ -13,12 +13,13 @@ const URI = process.env.MONGODB_URI;
 //     res.send('hia')
 // })
 
-let allowCrossDomain = function(req, res, next) {
+let allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Headers', "*");
+    res.header("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
     next();
-  }
-  app.use(allowCrossDomain);
+}
+app.use(allowCrossDomain);
 
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
