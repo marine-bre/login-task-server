@@ -18,9 +18,8 @@ router.post('/new', (req,res) => {
 
 
 //retrieve task route
-router.get('/allPosts', (req,res) => {
+router.post('/allPosts', (req,res) => {
     let userId = req.body.userId
-    let posts = [];
     Task.find({userId:userId})
     .then(result => res.json(result))
     .catch(err => res.status(400).json(err))
