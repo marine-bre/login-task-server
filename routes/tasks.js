@@ -25,4 +25,11 @@ router.post('/allPosts', (req,res) => {
     .catch(err => res.status(400).json(err))
 })
 
+//delete task
+router.delete('/delete', (req,res) =>{
+    Task.findByIdAndRemove({_id:req.body.postId})
+    .then(result => res.json('task deleted'))
+    .catch(err => res.status(400).json(err))
+})
+
 module.exports = router
